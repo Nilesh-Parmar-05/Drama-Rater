@@ -51,11 +51,10 @@ jobs:
       with:
         flutter-version: ${{ env.FLUTTER_VERSION }}
 
-    - name: Flet Build Web
+    - name: Flutter Build Web
       run: |
-            echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}, USER: ${GITHUB_REPOSITORY%/*}, PROJECT_BASE_URL: ${GITHUB_REPOSITORY#*/}"
-            flutter config --no-analytics
-            flutter build web --release ${GITHUB_REPOSITORY#*/} --route-url-strategy hash
+        flutter config --no-analytics
+        flutter build web --release
 
     - name: Upload Artifact
       uses: actions/upload-pages-artifact@v3
